@@ -46,9 +46,35 @@ const Box = () => {
   )
 }
 
+const Info = () => {
+  const isMobile = window.innerWidth <= 800
+
+  return (
+    <>
+      <Text
+        position={isMobile ? [0, 8.5, 0] : [4, 4, 0]}
+        font="./fonts/bangers.ttf"
+        scale={1.2}
+        letterSpacing={0.2}
+      >
+        Alec Plummer
+      </Text>
+      <Text
+        position={isMobile ? [0, 7, 0] : [3.7, 3, 0]}
+        scale={0.6}
+        font="./fonts/bangers.ttf"
+        letterSpacing={0.1}
+      >
+        Software Engineer
+      </Text>
+    </>
+  )
+}
+
 const Link = () => {
   const linkRef = useRef()
   const [hovered, setHovered] = useState(false)
+  const isMobile = window.innerWidth <= 800
 
   useEffect(() => {
     document.body.style.cursor = hovered ? 'pointer' : 'auto'
@@ -56,7 +82,7 @@ const Link = () => {
 
   return (
     <mesh
-      position={[3.5, 2, 0]}
+      position={isMobile ? [0, 5.5, 0] : [3.5, 2, 0]}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
       onClick={(e) => {
@@ -89,23 +115,7 @@ function App() {
       <Rig />
 
       <group>
-        <Text
-          position={[4, 4, 0]}
-          font="./fonts/bangers.ttf"
-          scale={1.2}
-          letterSpacing={0.2}
-        >
-          Alec Plummer
-        </Text>
-        <Text
-          position={[3.7, 3, 0]}
-          scale={0.6}
-          font="./fonts/bangers.ttf"
-          letterSpacing={0.1}
-        >
-          Software Engineer
-        </Text>
-
+        <Info />
         <Link />
       </group>
 
