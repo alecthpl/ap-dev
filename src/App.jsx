@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Stage, useGLTF, Html, Text } from '@react-three/drei'
+import { useFrame, useThree } from '@react-three/fiber'
+import { Stage, useGLTF, Text } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { Vector3 } from 'three'
 
